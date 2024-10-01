@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
 const morgan = require('morgan');
+const reportRoutes = require('./routes/reportRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(morgan('dev')); // Optional: Logs HTTP requests
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/reports', reportRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;
