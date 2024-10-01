@@ -1,9 +1,10 @@
-import express from 'express';
-import { generateReport } from '../controllers/reportController';
-import auth from '../middleware/authMiddleware';
+const express = require('express');
+const { generateReport } = require('../controllers/reportController');
+const auth = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
 router.get('/summary', auth, generateReport);
 
-export default router;
+
+module.exports = router;
