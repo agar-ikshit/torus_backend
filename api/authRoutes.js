@@ -4,12 +4,11 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-import connectDB from '../../config/db';
+
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
-export default async function handler(req, res) {
-  await connectDB();
+
 router.post(
   '/register',
   [
@@ -66,18 +65,15 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // Extract data
     const { email, password } = req.body;
 
     try {
-      // Check user existence
       let user = await User.findOne({ email });
       if (!user) {
         return res.status(400).json({ msg: 'Invalid credentials' });
       }
   
 
-      // Compare passwords
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
         return res.status(400).json({ msg: 'Invalid credentials' });
@@ -97,4 +93,3 @@ router.post(
 
 
 module.exports = router;
-}
