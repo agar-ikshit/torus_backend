@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const cors = require('cors');
 const morgan = require('morgan');
-const reportRoutes = require('./routes/reportRoutes');
+const reportRoutes = require('./api/reportRoutes');
 
 const app = express();
 
@@ -15,8 +15,8 @@ app.use(cors());
 app.use(morgan('dev')); // Optional: Logs HTTP requests
 
 // Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/tasks', require('./routes/taskRoutes'));
+app.use('/api/auth', require('./api/authRoutes'));
+app.use('/api/tasks', require('./api/taskRoutes'));
 app.use('/api/reports', reportRoutes);
 
 // Start the server
