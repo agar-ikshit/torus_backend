@@ -1,9 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const auth = require('../middleware/authMiddleware');
-const Task = require('../models/Task');
-const User = require('../models/User');
+import express from 'express';
+import { Router } from 'express';
+import { check, validationResult } from 'express-validator';
+import auth from '../middleware/authMiddleware';
+import Task from '../models/Task';
+import User from '../models/User';
+
+const router = Router();
 
 router.post(
   '/',
@@ -182,4 +184,5 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+
+export default router;
