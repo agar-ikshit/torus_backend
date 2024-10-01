@@ -4,9 +4,12 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+import connectDB from '../../config/db';
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
+export default async function handler(req, res) {
+  await connectDB();
 router.post(
   '/register',
   [
@@ -92,4 +95,6 @@ router.post(
   }
 );
 
+
 module.exports = router;
+}

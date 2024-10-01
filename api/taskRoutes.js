@@ -4,10 +4,13 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../middleware/authMiddleware');
 const Task = require('../models/Task');
 const User = require('../models/User');
+import connectDB from '../../config/db';
 
 // @route   POST /api/tasks
 // @desc    Create a new task
 // @access  Private
+export default async function handler(req, res) {
+  await connectDB();
 router.post(
   '/',
   [
@@ -186,3 +189,4 @@ router.get('/', auth, async (req, res) => {
 });
 
 module.exports = router;
+}
