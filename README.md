@@ -84,13 +84,4 @@ Edit
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
 JWT_SECRET=your_super_secret_key
 PORT=5000
-✅ Contributing
-Fork the repository
 
-Create your feature branch (git checkout -b feature/YourFeature)
-
-Commit your changes (git commit -m 'Add some feature')
-
-Push to the branch (git push origin feature/YourFeature)
-
-Open a pull request
